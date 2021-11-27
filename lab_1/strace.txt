@@ -1,0 +1,136 @@
+root@Du:/mnt/c/Users/egork/Desktop/os/lab_2# strace -f ./src/a.out < ./test/test4
+execve("./src/a.out", ["./src/a.out"], 0x7ffef54a4978 /* 21 vars */) = 0
+brk(NULL)                               = 0x561c35f1e000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffdfdc63470) = -1 EINVAL (Invalid argument)
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=31852, ...}) = 0
+mmap(NULL, 31852, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f1e9bd38000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360q\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\t\233\222%\274\260\320\31\331\326\10\204\276X>\263"..., 68, 880) = 68
+fstat(3, {st_mode=S_IFREG|0755, st_size=2029224, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f1e9bd36000
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\t\233\222%\274\260\320\31\331\326\10\204\276X>\263"..., 68, 880) = 68
+mmap(NULL, 2036952, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f1e9bb44000
+mprotect(0x7f1e9bb69000, 1847296, PROT_NONE) = 0
+mmap(0x7f1e9bb69000, 1540096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x25000) = 0x7f1e9bb69000
+mmap(0x7f1e9bce1000, 303104, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19d000) = 0x7f1e9bce1000
+mmap(0x7f1e9bd2c000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7f1e9bd2c000
+mmap(0x7f1e9bd32000, 13528, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f1e9bd32000
+close(3)                                = 0
+arch_prctl(ARCH_SET_FS, 0x7f1e9bd37540) = 0
+mprotect(0x7f1e9bd2c000, 12288, PROT_READ) = 0
+mprotect(0x561c3432c000, 4096, PROT_READ) = 0
+mprotect(0x7f1e9bd6d000, 4096, PROT_READ) = 0
+munmap(0x7f1e9bd38000, 31852)           = 0
+read(0, "f", 1)                         = 1
+read(0, "1", 1)                         = 1
+read(0, "\n", 1)                        = 1
+openat(AT_FDCWD, "f1", O_WRONLY|O_CREAT|O_TRUNC, 031600) = 3
+read(0, "f", 1)                         = 1
+read(0, "2", 1)                         = 1
+read(0, "\n", 1)                        = 1
+openat(AT_FDCWD, "f2", O_WRONLY|O_CREAT|O_TRUNC, 031600) = 4
+pipe([5, 6])                            = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 75 attached
+, child_tidptr=0x7f1e9bd37810) = 75
+[pid    74] close(5 <unfinished ...>
+[pid    75] close(6 <unfinished ...>
+[pid    74] <... close resumed>)        = 0
+[pid    75] <... close resumed>)        = 0
+[pid    74] pipe( <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... pipe resumed>[5, 7])   = 0
+[pid    74] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 76 attached
+, child_tidptr=0x7f1e9bd37810) = 76
+[pid    76] close(6 <unfinished ...>
+[pid    74] close(5 <unfinished ...>
+[pid    76] <... close resumed>)        = 0
+[pid    74] <... close resumed>)        = 0
+[pid    76] close(7 <unfinished ...>
+[pid    74] read(0,  <unfinished ...>
+[pid    76] <... close resumed>)        = 0
+[pid    76] read(5,  <unfinished ...>
+[pid    74] <... read resumed>"m", 1)   = 1
+[pid    74] write(6, "m", 1)            = 1
+[pid    75] <... read resumed>"m", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, "m", 1 <unfinished ...>
+[pid    74] <... read resumed>" ", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, " ", 1 <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... write resumed>)        = 1
+[pid    75] <... read resumed>" ", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, " ", 1 <unfinished ...>
+[pid    74] <... read resumed>"n", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, "n", 1 <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... write resumed>)        = 1
+[pid    75] <... read resumed>"n", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, "n", 1 <unfinished ...>
+[pid    74] <... read resumed>" ", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, " ", 1 <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... write resumed>)        = 1
+[pid    75] <... read resumed>" ", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, " ", 1 <unfinished ...>
+[pid    74] <... read resumed>"o", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, "o", 1 <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... write resumed>)        = 1
+[pid    75] <... read resumed>"o", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... read resumed>" ", 1)   = 1
+[pid    74] write(6, " ", 1)            = 1
+[pid    75] <... read resumed>" ", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, " ", 1 <unfinished ...>
+[pid    74] <... read resumed>"p", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, "p", 1 <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... write resumed>)        = 1
+[pid    75] <... read resumed>"p", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, "p", 1 <unfinished ...>
+[pid    74] <... read resumed>" ", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, " ", 1 <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... write resumed>)        = 1
+[pid    75] <... read resumed>" ", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, " ", 1 <unfinished ...>
+[pid    74] <... read resumed>"q", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, "q", 1 <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... write resumed>)        = 1
+[pid    75] <... read resumed>"q", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, "q", 1 <unfinished ...>
+[pid    74] <... read resumed>" ", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, " ", 1 <unfinished ...>
+[pid    75] read(5,  <unfinished ...>
+[pid    74] <... write resumed>)        = 1
+[pid    75] <... read resumed>" ", 1)   = 1
+[pid    74] read(0,  <unfinished ...>
+[pid    75] write(3, " ", 1 <unfinished ...>
+[pid    74] <... read resumed>"r", 1)   = 1
+[pid    75] <... write resumed>)        = 1
+[pid    74] write(6, "r", 1 <unfinished ...>
