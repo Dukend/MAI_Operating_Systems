@@ -1,2 +1,2 @@
-# OS
-Лабораторные работы по операционным системам
+# Operating-Systems
+Operating System labs in Moscow Aviation Institute.
